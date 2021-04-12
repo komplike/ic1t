@@ -1,6 +1,6 @@
 # ic1t
-Kompilacia v terminali:
-gcc *.c -o app
+Kompilacia:
+`gcc calc.c -o calc`
 
 Spustenie:
-./app
+`./calc`
