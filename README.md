@@ -1,2 +1,6 @@
 # ic1t
-projekt
+Kompilacia v terminali:
+gcc *.c -o app
+
+Spustenie:
+./app
