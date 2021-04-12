@@ -24,10 +24,7 @@ int main()
             res = num1 * num2;
             break;
         case 47:
-            if (num2 == 0) 
-            {
-                printf("Zero division!\n");
-            }
+            if (num2 == 0) printf("Zero division!\n");
             res = num1 / num2;
             break;
         default:
