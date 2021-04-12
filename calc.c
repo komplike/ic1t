@@ -2,14 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-void zero_check(double n)
-{
-    if (n == 0) {
-        printf("Zero division!\n");
-    }
-    return;
-}
-
 int main() 
 {
     char op;
