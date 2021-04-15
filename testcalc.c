@@ -16,20 +16,7 @@ int main() {
 	gets(op.str);
 	char *ptr = strtok(op.str, delim);
 
-
-	for (int i = 0; i<NUMBER_OF_OPERANDS;i++)
-	{
-		if (ptr == NULL)
-		{
-			break;
-		}
-		printf("%s\n", ptr);
-		op.num[i] = atof(ptr);
-		printf("%f\n", op.num[i]);
-		ptr = strtok(NULL, delim);
-	}
-
-/*
+	int i = 0;
 	while(ptr != NULL)
 	{
 		if (i >= NUMBER_OF_OPERANDS)
@@ -37,12 +24,17 @@ int main() {
 			break;
 		}
 
-		printf("%s\n", ptr);
+		//printf("%s\n", ptr);
 		op.num[i] = atof(ptr);
-		printf("%f\n", op.num[i]);
+		//printf("%f\n", op.num[i]);
 		ptr = strtok(NULL, delim);
 		i++;
-	}*/
+	}
+
+	for (int j = 0; j<NUMBER_OF_OPERANDS;j++)
+	{
+		printf("%f\n", op.num[j]);
+	}
 
 	exit(0);
 }
