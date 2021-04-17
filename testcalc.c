@@ -36,7 +36,7 @@ int main()
 	} formula;
 
 	char delimiters[] = "+-*/";
-	char numbers[] = "0123456789";
+	char numbers[] = "0123456789.";
 	char copy[100];
 
 	//ACQUIRES INPUT FROM USER
@@ -72,14 +72,14 @@ int main()
 		ptr = strtok(NULL, numbers);
 		i++;
 	}
-
+	int TRUE_NUM_OF_OPS = i;
 	//ACTUAL CALCULATOR NOW
 
 	//NUMBERS ARE STORED IN formula.numbers AND OPERATORS ARE STORED IN formula.operators
 
 	//represent operands as numbers
-	int op[NUMBER_OF_OPERANDS - 1];
-	for (int i = 0; i < NUMBER_OF_OPERANDS - 1; i++)
+	int op[TRUE_NUM_OF_OPS];
+	for (int i = 0; i < TRUE_NUM_OF_OPS; i++)
 	{
 		switch (formula.operators[i])
 		{
@@ -101,7 +101,7 @@ int main()
 	}
 
 	// solve expression by operand priority
-	int op_left = NUMBER_OF_OPERANDS - 1;
+	int op_left = TRUE_NUM_OF_OPS;
 	while (op_left != 0)
 	{
 		//operation priority * /
