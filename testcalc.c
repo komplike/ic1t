@@ -181,7 +181,7 @@ int main()
 			}
 		}
 	}
-	printf("= %lf",formula.numbers[0]);
+	printf("= %lf\n",formula.numbers[0]);
 
 	return (0);
 }
