@@ -37,19 +37,27 @@ int main()
 		char operators[NUMBER_OF_OPERANDS - 1];
 	} formula;
 
+	char buffer[50];
+
 
 	while(1)
 	{
 		//initialize to be empty
 		memset(formula.input, 0, 50*(sizeof formula.input[0]));
-		gets(formula.input);
+		gets(buffer);
+		sprintf(formula.input, buffer);
 		//strcpy(formula.input, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"); //only here for ddd debugging
 
-		//if you type in mem, you get the last result
+		//if you type in mem, you get the last result, then continue
 		if(!strcmp(formula.input, "mem"))
 		{
 			printf("memory: %s\n", formula.memory);
 			continue;
+		}
+		else if (!strcmp(formula.input, "exit"))
+		{
+			printf("Thank you for using SilverOmega, have a great day!\n");
+			break;
 		}
 
 		//initialize to be empty
@@ -60,7 +68,7 @@ int main()
 		char read[100] = "";
 
 		//goes through the entire input and splits it into numbers and operands
-		for (int i = 1; i < MAX_INPUT; i++) //OD 1 PROTOZE RADEK MUZE ZACINAT minus
+		for (int i = 1; i < MAX_INPUT; i++) //starts from index 1, because 0 could be "-"
 		{
 			switch ((int)formula.input[i])
 			{
@@ -117,6 +125,12 @@ int main()
 		//numbers are stored in formula.numbers and operators are stored in formula.operators
 		int TRUE_NUM_OF_OPS = formula_position;
 
+		//if there is no operation, continue
+		if(TRUE_NUM_OF_OPS == 0)
+		{
+			continue;
+		}
+
 		//represent operands as numbers
 		int op[TRUE_NUM_OF_OPS];
 		for (int i = 0; i < TRUE_NUM_OF_OPS; i++)
@@ -138,11 +152,6 @@ int main()
 				default:
 					break;
 			}
-		}
-
-		if(TRUE_NUM_OF_OPS == 0)
-		{
-			continue;
 		}
 
 		// solve expression by operand priority
@@ -237,7 +246,7 @@ int main()
 			}
 		}
 
-		char mem[50];i
+		char mem[50];
 		snprintf(mem, 50, "%lf", formula.numbers[0]);
 		strcpy(formula.memory, mem);
 		//printf("mem = %s\n", formula.memory); //for debugging
