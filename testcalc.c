@@ -43,7 +43,7 @@ int main()
 		//initialize to be empty
 		memset(formula.input, 0, 50*(sizeof formula.input[0]));
 		gets(formula.input);
-		//strcpy(formula.input, "15*0"); //only here for ddd debugging
+		//strcpy(formula.input, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"); //only here for ddd debugging
 
 		//if you type in mem, you get the last result
 		if(!strcmp(formula.input, "mem"))
@@ -140,6 +140,11 @@ int main()
 			}
 		}
 
+		if(TRUE_NUM_OF_OPS == 0)
+		{
+			continue;
+		}
+
 		// solve expression by operand priority
 		int op_left = TRUE_NUM_OF_OPS;
 		while (op_left != 0)
@@ -232,7 +237,7 @@ int main()
 			}
 		}
 
-		char mem[50];
+		char mem[50];i
 		snprintf(mem, 50, "%lf", formula.numbers[0]);
 		strcpy(formula.memory, mem);
 		//printf("mem = %s\n", formula.memory); //for debugging
