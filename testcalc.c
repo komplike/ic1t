@@ -27,23 +27,23 @@ int main()
 {
 
 	const int NUMBER_OF_OPERANDS = 5;
-	const int MAX_INPUT = 50;
+	const int MAX_INPUT = 20;
 
 	struct
 	{
-		char input[50];
-		volatile char memory[50];
+		char input[20];
+		volatile char memory[20];
 		double numbers[NUMBER_OF_OPERANDS];
 		char operators[NUMBER_OF_OPERANDS - 1];
 	} formula;
 
-	char buffer[50];
+	char buffer[20];
 
 
 	while(1)
 	{
 		//initialize to be empty
-		memset(formula.input, 0, 50*(sizeof formula.input[0]));
+		memset(formula.input, 0, 20*(sizeof formula.input[0]));
 		gets(buffer);
 		sprintf(formula.input, buffer);
 		//strcpy(formula.input, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"); //only here for ddd debugging
@@ -65,7 +65,7 @@ int main()
 
 		int position = 0;
 		int formula_position = 0;
-		char read[100] = "";
+		char read[20] = "";
 
 		//goes through the entire input and splits it into numbers and operands
 		for (int i = 1; i < MAX_INPUT; i++) //starts from index 1, because 0 could be "-"
@@ -82,12 +82,12 @@ int main()
 						break;
 					}
 
-					memset(read, 0, 50*(sizeof read[0]));
+					memset(read, 0, 20*(sizeof read[0]));
 					//copies (i - position) chars from formula.input from position formula.input[position]
 					memcpy(&read, &formula.input[position], (i - position)*sizeof(char));
 					formula.numbers[formula_position] = atof(read);
 
-					memset(read, 0, 50*(sizeof read[0]));
+					memset(read, 0, 20*(sizeof read[0]));
 					//adds the opertor to formula.operators same as above
 					memcpy(&read, &formula.input[i], sizeof(char));
 					formula.operators[formula_position] = (char)read[0];
@@ -246,8 +246,8 @@ int main()
 			}
 		}
 
-		char mem[50];
-		snprintf(mem, 50, "%lf", formula.numbers[0]);
+		char mem[20];
+		snprintf(mem, 20, "%lf", formula.numbers[0]);
 		strcpy(formula.memory, mem);
 		//printf("mem = %s\n", formula.memory); //for debugging
 		printf("= %lf\n",formula.numbers[0]);
